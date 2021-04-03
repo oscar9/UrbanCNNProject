@@ -19,19 +19,17 @@ def createTemporalShape(featureType, feature):
         shapeStore.insert(newFeature)
         shape.commit()
 
-        gvsig.currentView().addLayer(shape)
+        #gvsig.currentView().addLayer(shape)
         return shape
 
 def main(*args):
 
-    raster = gvsig.currentView().getLayer("Resultado")
-    poligonos = gvsig.currentView().getLayer("aleatoria_geom_pol")
+    raster = gvsig.currentView().getLayer("ALICANTE_MUESTRA")
+    poligonos = gvsig.currentView().getLayer("MANZANA_32630_muestras")
     featureTypePoligonos = poligonos.getFeatureStore().getDefaultFeatureType()
-    print raster
     print poligonos
     fset = poligonos.getFeatureStore().getFeatureSet()
     for f in fset:
       temporalShape = createTemporalShape(featureTypePoligonos, f)
-      tempFile = getTempFile("tempSample", ".tif", tempdir="E:/Atlas_Datos/test/tempShapes")
-      print temporalShape
+      tempFile = getTempFile("tempSample", ".tif", tempdir="E:/Atlas_Datos/test/tempTif")
       gvpy.runalg("clipgrid", "Resultado",temporalShape, PATH=tempFile)
