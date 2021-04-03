@@ -1,0 +1,12 @@
+[Script]
+enable = true
+main = main
+Lang = python
+
+[Unit]
+type = Script
+name = extract_samples_geoprocess
+description = 
+createdBy = 
+version = 
+
