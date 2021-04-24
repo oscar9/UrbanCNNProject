@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<RasterMetaFile version="1.0">
+<FLyrGeoRaster>
+	<Extent>
+			<X>719443.1935639167</X>
+			<Y>4248432.144249349</Y>
+			<RotationX>0.0</RotationX>
+			<RotationY>0.0</RotationY>
+			<PixelSizeX>0.24993083897749865</PixelSizeX>
+			<PixelSizeY>-0.24995150234730965</PixelSizeY>
+			<Width>0.0</Width>
+			<Height>0.0</Height>
+	</Extent>
+	<Dimension>
+			<ImagePxWidth>4577.0</ImagePxWidth>
+			<ImagePxHeight>3195.0</ImagePxHeight>
+	</Dimension>
+</FLyrGeoRaster>
+<ColorInterpretation>
+	<BandCount>3</BandCount>
+	<Band>Red</Band>
+	<Band>Green</Band>
+	<Band>Blue</Band>
+</ColorInterpretation>
+<NoDataValue datatype="32" transparent="false">
+	<Band number="0" value="null"/>
+</NoDataValue>
+<Projection>
+	<WktProjection value="PROJCS[WGS 84 / UTM zone 30N,GEOGCS[WGS 84,DATUM[WGS_1984,SPHEROID[WGS 84,6378137,298.257223563,AUTHORITY[EPSG,7030]],AUTHORITY[EPSG,6326]],PRIMEM[Greenwich,0],UNIT[degree,0.0174532925199433],AUTHORITY[EPSG,4326]],PROJECTION[Transverse_Mercator],PARAMETER[latitude_of_origin,0],PARAMETER[central_meridian,-3],PARAMETER[scale_factor,0.9996],PARAMETER[false_easting,500000],PARAMETER[false_northing,0],UNIT[metre,1,AUTHORITY[EPSG,9001]],AUTHORITY[EPSG,32630]]"/>
+</Projection>
+</RasterMetaFile>

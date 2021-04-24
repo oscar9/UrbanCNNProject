@@ -1,0 +1,12 @@
+[Script]
+enable = true
+main = main
+Lang = python
+
+[Unit]
+type = Script
+name = testing_001_clip_buffer
+description = 
+createdBy = 
+version = 
+
