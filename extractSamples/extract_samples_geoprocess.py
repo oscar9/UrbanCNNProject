@@ -24,12 +24,23 @@ def createTemporalShape(featureType, feature):
 
 def main(*args):
 
-    raster = gvsig.currentView().getLayer("ALICANTE_MUESTRA")
-    poligonos = gvsig.currentView().getLayer("MANZANA_32630_muestras")
+    raster = gvsig.currentView().getLayer("alicante")
+    
+    poligonos = gvsig.currentView().getLayer("alicante_muestras_pnoa0872")
+    print "Raster: ",raster
+    print "Poligonos: ", poligonos
     featureTypePoligonos = poligonos.getFeatureStore().getDefaultFeatureType()
     print poligonos
     fset = poligonos.getFeatureStore().getFeatureSet()
+    total = fset.getSize()
+    n = 0
     for f in fset:
+      n+=1
+      print ("Status: "+str((n/total)*100))
+      buildType= f.get("TIPO")
+      if buildType == -1: 
+        continue
       temporalShape = createTemporalShape(featureTypePoligonos, f)
-      tempFile = getTempFile("tempSample", ".tif", tempdir="E:/Atlas_Datos/test/tempTif")
-      gvpy.runalg("clipgrid", "Resultado",temporalShape, PATH=tempFile)
+      tempFile = getTempFile("tempSample","_"+str(buildType)+ ".tif", tempdir="E:\\Atlas_Datos\\test\\tempTif")
+      print tempFile
+      gvpy.runalg("clipgrid", raster,temporalShape, PATH=tempFile)
