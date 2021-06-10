@@ -36,7 +36,7 @@ def main(*args):
     n = 0
     for f in fset:
       n+=1
-      print ("Status: "+str((n/total)*100))
+      print ("Status: "+str((double(n)/total)*100.0))
       buildType= f.get("TIPO")
       if buildType == -1: 
         continue
