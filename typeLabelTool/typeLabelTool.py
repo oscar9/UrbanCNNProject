@@ -8,6 +8,9 @@ class TypeLabelToolPanel(FormPanel):
     def __init__(self):
         FormPanel.__init__(self, gvsig.getResource(__file__, "typeLabelTool.xml"))
         self.layer = gvsig.currentLayer()
+        if self.layer == None:
+          
+          return
         self.store = self.layer.getFeatureStore()
         self.typeField = "TIPO"
         
@@ -23,6 +26,7 @@ class TypeLabelToolPanel(FormPanel):
             features.update(c)
         features.deselectAll()
         DisposeUtils.dispose(features)
+        self.updateCount()
         
     def btnType0_click(self, *args):
         print "espacio abierto"
@@ -55,6 +59,24 @@ class TypeLabelToolPanel(FormPanel):
             features.delete(feature)
         features.deselectAll()
         DisposeUtils.dispose(features)
+
+    def btnCount_click(self, *args):
+        self.updateCount()
+        
+    def updateCount(self):
+        fset = self.store.getFeatureSet()
+        count = {}
+        for f in fset:
+          tipo = f.get("TIPO")
+          if tipo in count:
+            count[tipo] = count[tipo]+1
+          else:
+            count[tipo] = 1
+        s = ""
+        for k in count.keys():
+           s = s + "<br>" + str(k)+": "+str(count[k])+"</br>"
+        self.lblStatus.setText("<html>"+s+"</html>")
+        DisposeUtils.dispose(fset)
     
 def main(*args):
     l = TypeLabelToolPanel()
